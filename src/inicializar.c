@@ -2,17 +2,17 @@
 
 extern int Lista_Inicializar(ListaEnlazada *lista)
 {
-	ElementoLista *elemento= NULL
-	*elemento = (ElementoLista *)malloc(sizeof(ElementoLista));
-
 	if (lista != NULL)
 	{
+		ElementoLista *elemento= *elemento = (ElementoLista *)malloc(sizeof(ElementoLista));
+
 		elemento->objeto = NULL;
 		elemento->siguiente = elemento;
-		elemento->anterior = anterior;
+		elemento->anterior = elemento;
 		
 		lista->numeroElementos = 0;
 		lista->ancla = elemento;
+		return 0;
 	}
-	return 1;
+	return -1;
 }
