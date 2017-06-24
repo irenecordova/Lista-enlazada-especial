@@ -1,1 +1,25 @@
-extern int Lista_InsertarDespues(ListaEnlazada *lista,voidextern int Lista_Conteo(ListaEnlazada *lista)
+#include "miLista.h"
+
+extern int Lista_InsertarDespues(ListaEnlazada *lista, void *objeto, ElementoLista *elemento)
+{
+	if ((lista != NULL) && (elemento != NULL) && (Lista_Vacia(lista) == 0)) 
+	{
+		ElementoLista *temp = Lista_Buscar(lista, elemento->objeto);
+		
+		if (elemento == Lista_Ultimo(lista))
+		{
+			Lista_InsertarFin(lista, objeto);
+		}
+		if ((temp != NULL) && (temp != Lista_Ultimo(lista))
+		{
+			ElementoLista *nuevo = (ElementoLista *)malloc(sizeof(ElementoLista));
+			nuevo->objeto = &(objeto);
+			nuevo->anterior = &(elemento);
+			nuevo->siguiente = &(elemento->siguiente);
+			elemento->siguiente = &(nuevo);
+			elemento->siguiente->anterior = &(nuevo);
+			return 1;
+		}
+	}
+	return -1;
+}

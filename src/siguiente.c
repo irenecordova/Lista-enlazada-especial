@@ -6,7 +6,7 @@ extern ElementoLista *Lista_Siguiente(ListaEnlazada *lista, ElementoLista *eleme
 	{
 		ElementoLista *temp = Lista_Buscar(lista, elemento->objeto);
 		
-		if ((temp != NULL) && (temp != Lista_Ultimo(lista)) return temp->siguiente;
+		if ((temp != NULL) && (elemento != Lista_Ultimo(lista)) return (elemento->siguiente);
 	}
 	return NULL;
 }

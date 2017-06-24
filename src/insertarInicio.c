@@ -4,7 +4,7 @@ extern int Lista_InsertarInicio(ListaEnlazada *lista, void *objeto)
 {
 	if (lista != NULL) 
 	{
-		ElementoLista *elemento =  (ElementoLista *)malloc(sizeof(ElementoLista));
+		ElementoLista *elemento = (ElementoLista *)malloc(sizeof(ElementoLista));
 
 		if (elemento != NULL)
 		{
