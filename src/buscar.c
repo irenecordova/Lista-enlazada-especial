@@ -4,13 +4,13 @@ extern ElementoLista *Lista_Buscar(ListaEnlazada *lista, void *objeto)
 {
 	if ((lista != NULL) && (Lista_Vacia(lista) == 0))
 	{
-		ElementoLista *primero = Lista_Primero(lista);
-		ElementoLista *ancla = primero->anterior;
+		ElementoLista *elemento = Lista_Primero(lista);
+		ElementoLista *ancla = elemento->anterior;
 		
-		while (primero != ancla)
+		while (elemento != ancla)
 		{
-			if (primero->objeto == objeto) return primero;
-			primero = primero->siguiente;
+			if (elemento->objeto == objeto) return elemento;
+			elemento = elemento->siguiente;
 		}
 	}
 	return NULL;
