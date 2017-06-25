@@ -19,10 +19,11 @@ extern int Lista_InsertarInicio(ListaEnlazada *lista, void *objeto)
 		}
 		else
 		{
+			//Si la lista no está vacía
 			//Se obtiene el primeto de la lista
 			ElementoLista *primero = Lista_Primero(lista);
 
-			//Si la lista contiene elementos, se mueve los punteros
+			//Se mueven los punteros
 			primero->anterior = elemento;
 			elemento->siguiente = primero;
 			elemento->anterior = &(lista->ancla);

@@ -6,7 +6,7 @@ extern int Lista_InsertarAntes(ListaEnlazada *lista, void *objeto, ElementoLista
 {
 	if ((lista != NULL) && (elemento != NULL) && (Lista_Vacia(lista) == 0)) 
 	{
-		//Puntero temporaral ElementoLista para verificar si el elemento ingresado como parámetro existe
+		//Puntero temporal ElementoLista para verificar si el elemento ingresado como parámetro existe
 		ElementoLista *temp = Lista_Buscar(lista, elemento->objeto);
 		
 		//Si el elemento ingresado como parámetro es el primero, se usa la función Lista_InsertarInicio
@@ -19,12 +19,16 @@ extern int Lista_InsertarAntes(ListaEnlazada *lista, void *objeto, ElementoLista
 			//Se crea un puntero ElementoLista donde se guardará el objeto ingresado como parámetro y se reserva el espacio de memoria
 			ElementoLista *nuevo = (ElementoLista *)malloc(sizeof(ElementoLista));
 
-			//Se mueven  los punteros
+			//Se le asigna al nuevo elemento el objeto ingresado como parámetro
 			nuevo->objeto = objeto;
+
+			//Se mueven  los punteros
 			nuevo->siguiente = elemento;
 			nuevo->anterior = elemento->anterior;
 			elemento->anterior->siguiente = nuevo;
 			elemento->anterior = nuevo;
+
+			//Incrementa el valor de número de elementos de la lista
 			lista->numeroElementos++;
 			return 1;
 		}

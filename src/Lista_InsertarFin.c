@@ -19,10 +19,11 @@ extern int Lista_InsertarFin(ListaEnlazada *lista, void *objeto)
 		}
 		else
 		{
+			//Si la lista no está vacía
 			//Se obtiene el último de la lista
 			ElementoLista *ultimo = Lista_Ultimo(lista);
 
-			//Si la lista contiene elementos, se mueve los punteros
+			//Se mueven los punteros
 			ultimo->siguiente = elemento;
 			elemento->anterior = ultimo;
 			elemento->siguiente = &(lista->ancla);

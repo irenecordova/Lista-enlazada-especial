@@ -6,7 +6,7 @@ extern ElementoLista *Lista_Anterior(ListaEnlazada *lista, ElementoLista *elemen
 {
 	if ((lista != NULL) && (Lista_Vacia(lista) == 0) && (elemento != NULL))
 	{
-		//Puntero temporaral ElementoLista para verificar si el elemento ingresado como parámetro existe
+		//Puntero temporal ElementoLista para verificar si el elemento ingresado como parámetro existe
 		ElementoLista *temp = Lista_Buscar(lista, elemento->objeto);
 
 		//Se verifica que el elemento existe y que no sea el primero ya que no tiene anterior. Retorna el anterior

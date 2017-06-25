@@ -6,7 +6,7 @@ extern void Lista_Sacar(ListaEnlazada *lista, ElementoLista *elemento)
 {
 	if ((lista != NULL) && (elemento != NULL) && (Lista_Vacia(lista) == 0)) 
 	{
-		//Puntero temporaral ElementoLista para verificar si el elemento ingresado como parámetro existe		
+		//Puntero temporal ElementoLista para verificar si el elemento ingresado como parámetro existe		
 		ElementoLista *temp = Lista_Buscar(lista, elemento->objeto);
 		
 		if (temp != NULL)

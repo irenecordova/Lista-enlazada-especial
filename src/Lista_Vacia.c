@@ -6,7 +6,7 @@ extern int Lista_Vacia(ListaEnlazada *lista)
 {
 	if (lista != NULL)
 	{
-		//Retorna 1 si la lista está vacia o 0 si la lista está llena
+		//Retorna 1 si la lista está vacia y 0 si no está vacía
 		if (lista->numeroElementos == 0) return 1;
 		return 0;
 	}

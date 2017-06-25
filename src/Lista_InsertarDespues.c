@@ -6,7 +6,7 @@ extern int Lista_InsertarDespues(ListaEnlazada *lista, void *objeto, ElementoLis
 {
 	if ((lista != NULL) && (elemento != NULL) && (Lista_Vacia(lista) == 0)) 
 	{
-		//Puntero temporaral ElementoLista para verificar si el elemento ingresado como parámetro existe		
+		//Puntero temporal ElementoLista para verificar si el elemento ingresado como parámetro existe		
 		ElementoLista *temp = Lista_Buscar(lista, elemento->objeto);
 		
 		//Si el elemento ingresado como parámetro es el último, se usa la función Lista_InsertaFin	
@@ -19,7 +19,6 @@ extern int Lista_InsertarDespues(ListaEnlazada *lista, void *objeto, ElementoLis
 			//Se crea un puntero ElementoLista donde se guardará el objeto ingresado como parámetro y se reserva el espacio de memoria			
 			ElementoLista *nuevo = (ElementoLista *)malloc(sizeof(ElementoLista));
 
-			
 			//Se le asigna al nuevo elemento el objeto ingresado como parámetro
 			nuevo->objeto = objeto;
 

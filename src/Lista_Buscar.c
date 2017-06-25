@@ -10,7 +10,7 @@ extern ElementoLista *Lista_Buscar(ListaEnlazada *lista, void *objeto)
 		ElementoLista *elemento = Lista_Primero(lista);
 		ElementoLista *ultimo = Lista_Ultimo(lista);
 
-		//Se realiza el ciclo mientras el primero no sea último
+		//Se realiza el ciclo mientras el elemento no sea último
 		while (elemento != ultimo)
 		{
 			//Retorna el elemento si los objetos son iguales
