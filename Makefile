@@ -1,7 +1,7 @@
 all: prueba
 
 prueba: prueba.o objetos libmilista.so
-	gcc -Llib/ obj/prueba.o obj/Lista*.o -lmilista -o bin/prueba
+	gcc -Wall -Llib/ obj/prueba.o obj/Lista*.o -lmilista -o ./prueba
 
 prueba.o: src/pruebaLista.c
 	gcc -Wall -Iinclude/ -c src/pruebaLista.c -o obj/prueba.o
@@ -27,4 +27,4 @@ libmilista.so: src/Lista*.c
 
 .PHONY: clean
 clean:
-	rm -rf obj/* bin/* lib/*
+	rm -rf obj/* lib/*
