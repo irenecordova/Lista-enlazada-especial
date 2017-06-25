@@ -6,27 +6,24 @@ extern int Lista_InsertarInicio(ListaEnlazada *lista, void *objeto)
 	{
 		ElementoLista *elemento = (ElementoLista *)malloc(sizeof(ElementoLista));
 
-		if (elemento != NULL)
+		elemento->objeto = objeto;
+
+		if (Lista_Vacia(lista) == 1)
 		{
-			elemento->objeto = objeto;
-
-			if (Lista_Vacia(lista) == 1)
-			{
-				elemento->siguiente = elemento->anterior = &(lista->ancla);
-				lista->ancla->siguiente = elemento;
-			}
-			else
-			{
-				ElementoLista *primero = Lista_Primero(lista);
-				primero->anterior = elemento;
-				elemento->siguiente = primero;
-				elemento->anterior = &(lista->ancla);
-			}
-
+			elemento->siguiente = elemento->anterior = lista->ancla;
 			lista->ancla->siguiente = elemento;
-			lista->numeroElementos++;
-			return 1;
 		}
+		else
+		{
+			ElementoLista *primero = Lista_Primero(lista);
+			primero->anterior = elemento;
+			elemento->siguiente = primero;
+			elemento->anterior = lista->ancla;
+		}
+
+		lista->ancla->siguiente = elemento;
+		lista->numeroElementos++;
+		return 1;
 	}
 	return -1;			
 }

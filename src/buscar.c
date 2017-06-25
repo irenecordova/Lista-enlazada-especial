@@ -7,7 +7,7 @@ extern ElementoLista *Lista_Buscar(ListaEnlazada *lista, void *objeto)
 		ElementoLista *elemento = Lista_Primero(lista);
 		ElementoLista *ancla = elemento->anterior;
 		
-		while (elemento != ancla)
+		while (elemento != lista->ancla)
 		{
 			if (elemento->objeto == objeto) return elemento;
 			elemento = elemento->siguiente;

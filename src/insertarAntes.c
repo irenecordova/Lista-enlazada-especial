@@ -10,14 +10,15 @@ extern int Lista_InsertarAntes(ListaEnlazada *lista, void *objeto, ElementoLista
 		{
 			Lista_InsertarInicio(lista, objeto);
 		}
-		if ((temp != NULL) && (temp != Lista_Ultimo(lista))
+		if ((temp != NULL) && (elemento != Lista_Ultimo(lista))
 		{
 			ElementoLista *nuevo = (ElementoLista *)malloc(sizeof(ElementoLista));
-			nuevo->objeto = &(objeto);
-			nuevo->siguiente = &(elemento);
-			nuevo->anterior = &(elemento->anterior);
-			elemento->anterior = &(nuevo);
-			elemento->anterior->siguiente = &(nuevo);
+			nuevo->objeto = objeto;
+			nuevo->siguiente = elemento;
+			nuevo->anterior = elemento->anterior;
+			elemento->anterior = nuevo;
+			elemento->anterior->siguiente = nuevo;
+			lista->numeroElementos++;
 			return 1;
 		}
 	}
