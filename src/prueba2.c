@@ -303,8 +303,10 @@ void IntercambiarElementos(ListaEnlazada *lista, ElementoLista **elemento1, Elem
 	long valor_anterior_elem2 = (long)(anteriorElem2)->objeto;
 	//long valor_siguiente_elem2 = (long)(siguienteElem2)->objeto;
 
-	//printf(" elem1 %lu\n", (long)(*elemento1)->objeto);
-	//printf(" elem2 %lu\n", (long)(*elemento2)->objeto);	
+	printf(" elem1 %lu\n", (long)(*elemento1)->objeto);
+	printf(" elem2 %lu\n", (long)(*elemento2)->objeto);
+	if (anteriorElem1 != NULL) printf(" anteriorelem1 %d\n", anteriorElem1->objeto);
+	printf(" anteriorelem2 %d\n", anteriorElem2->objeto);		
 
 	long valor_elem1 = (long)(*elemento1)->objeto;
 	long valor_elem2 = (long)(*elemento2)->objeto;
@@ -316,32 +318,33 @@ void IntercambiarElementos(ListaEnlazada *lista, ElementoLista **elemento1, Elem
 	free(*elemento1);
 	free(*elemento2);
 
-	//printf("antes del swap\n");
-	//ImprimirLista(lista, Lista_Conteo(lista));
+	printf("antes del swap\n");
+	ImprimirLista(lista, Lista_Conteo(lista));
 
+	printf("insertar elemento 2\n");
 	/*elemento 2*/
 	if (anteriorElem1 == NULL){
 		/*elem1 es el primer elemento de la lista*/
 		Lista_InsertarInicio(lista, (void *)valor_elem2);
 		*elemento2 = Lista_Primero(lista);
-		//ImprimirLista(lista, Lista_Conteo(lista));
+		ImprimirLista(lista, Lista_Conteo(lista));
 	}
 	else{
 
 
 		Lista_InsertarDespues(lista, (void *)valor_elem2, anteriorElem1);
 		*elemento2 = Lista_Siguiente(lista, anteriorElem1);
-		//ImprimirLista(lista, Lista_Conteo(lista));
+		ImprimirLista(lista, Lista_Conteo(lista));
 
 	}
 
-
+	printf("insertar elemento 1\n");
 	/*elemento 1*/
 	if (anteriorElem2 == NULL){
 		/*elem2 es el primer elemento de la lista*/
 		Lista_InsertarInicio(lista, (void *)valor_elem1);
 		*elemento1 = Lista_Primero(lista);
-		//ImprimirLista(lista, Lista_Conteo(lista));
+		ImprimirLista(lista, Lista_Conteo(lista));
 	}
 	else{
 		/*El elemento2 siempre es cambiado correctamente
@@ -359,8 +362,8 @@ void IntercambiarElementos(ListaEnlazada *lista, ElementoLista **elemento1, Elem
 				Lista_InsertarAntes(lista, (void *)valor_elem1, siguienteElem2);
 				*elemento1 = Lista_Anterior(lista, anteriorElem2);
 			}
-
-			//ImprimirLista(lista, Lista_Conteo(lista));
+			
+			ImprimirLista(lista, Lista_Conteo(lista));
 		}
 		else{
 
@@ -369,8 +372,8 @@ void IntercambiarElementos(ListaEnlazada *lista, ElementoLista **elemento1, Elem
 
 		}
 	}
-	//printf("despues del swap\n");
-	//ImprimirLista(lista, Lista_Conteo(lista));
+	printf("despues del swap\n");
+	ImprimirLista(lista, Lista_Conteo(lista));
 
 	return;
 }
@@ -381,10 +384,10 @@ void OrdenarListaAscendente(ListaEnlazada *lista){
 
 	int i = 0;
 
-#ifdef IMPRIMIR_LISTA
+//#ifdef IMPRIMIR_LISTA
 	printf("Lista antes de ordenar:\n");
 	ImprimirLista(lista, Lista_Conteo(lista));
-#endif
+//#endif
 
 	ElementoLista *actual, *siguiente, *minimoActual, *elem;
 	for (i = 0; i < numeroElementos; i++){
@@ -434,8 +437,8 @@ void OrdenarListaAscendente(ListaEnlazada *lista){
 		}
 
 		//Aqui encontramos el minimo, 
-		//printf("Minimo Actual %lu\n", (long)minimoActual->objeto);
-		//printf("Actual %lu\n", (long)actual->objeto);
+		printf("Minimo Actual %lu\n", (long)minimoActual->objeto);
+		printf("Actual %lu\n", (long)actual->objeto);
 
 		//Si valor_elem == valor_min Quiere decir que el minimo lo encontramos de inmediato
 		if (minimo_cambio){
@@ -455,10 +458,10 @@ void OrdenarListaAscendente(ListaEnlazada *lista){
 		//Aqui actual y minimoActual son punteros liberados (IntercambiarElementos los libero)
 
 	}
-#ifdef IMPRIMIR_LISTA
+//#ifdef IMPRIMIR_LISTA
 	printf("OrdenarLista: despues de ordenar:\n");
 	ImprimirLista(lista, Lista_Conteo(lista));
-#endif
+//#endif
 
 	for (elem = Lista_Primero(lista); elem != NULL; elem = Lista_Siguiente(lista, elem)){
 		siguiente = Lista_Siguiente(lista, elem);

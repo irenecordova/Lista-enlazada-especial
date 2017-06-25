@@ -23,7 +23,6 @@ extern void Lista_Sacar(ListaEnlazada *lista, ElementoLista *elemento)
 				elemento->anterior->siguiente = elemento->siguiente;
 				elemento->siguiente->anterior = elemento->anterior;
 			}
-			elemento = NULL;
 			lista->numeroElementos--;
 		}
 	}
