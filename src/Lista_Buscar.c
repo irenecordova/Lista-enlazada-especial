@@ -13,14 +13,14 @@ extern ElementoLista *Lista_Buscar(ListaEnlazada *lista, void *objeto)
 		//Se realiza el ciclo mientras el primero no sea último
 		while (elemento != ultimo)
 		{
-			//Retorna la dirección de memoria del primero si los objetos son iguales
+			//Retorna el elemento si los objetos son iguales
 			if (elemento->objeto == objeto) return elemento;
 			
 			//Se mueve el puntero al siguiente
 			elemento = elemento->siguiente;
 		}
 
-		//Retorna la dirección de memoria del último si los objetos son iguales
+		//Retorna el último si los objetos son iguales, ya que si el elemento es el último no entra al while.
 		if (elemento->objeto == ultimo->objeto) return ultimo;
 	}
 	return NULL;

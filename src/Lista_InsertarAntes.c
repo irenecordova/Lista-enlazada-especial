@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "miLista.h"
 
-//Inserta un elemento antes del elemento ingresado como parámetro
+//Inserta un elemento con valor del objeto ingresado como parámetro, antes del elemento ingresado como parámetro
 extern int Lista_InsertarAntes(ListaEnlazada *lista, void *objeto, ElementoLista *elemento)
 {
 	if ((lista != NULL) && (elemento != NULL) && (Lista_Vacia(lista) == 0)) 

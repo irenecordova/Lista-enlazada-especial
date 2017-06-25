@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "miLista.h"
 
-//Inicializa la lista, constructor
+//Inicializa la lista
 extern int Lista_Inicializar(ListaEnlazada *lista)
 {
 	if (lista != NULL)
