@@ -35,7 +35,6 @@ void LlenarLista(ListaEnlazada *lista, int numeroElementos){
 	for (i = 0; i < numeroElementos; i++){
 		Lista_InsertarFin(lista, (void *)i);
 	}
-	ImprimirLista(lista, numeroElementos);
 }
 
 /*Devuelve numero aleatorio de entre 0 y numeroElementos - 1*/
@@ -107,8 +106,6 @@ int BarajarLista(ListaEnlazada *lista, int numeroElementos)
 		Lista_InsertarFin(&lista_tmp, objeto);
 	}
 
-	ImprimirLista(lista, lista->numeroElementos); 
-	printf("%d\n", Lista_Vacia(lista));
 	/*Aqui lista debe estar vacia...*/
 	if (!Lista_Vacia(lista)){
 		/*No encontramos el valor (o Buscar esta mal implementada)*/
@@ -199,8 +196,6 @@ void CopiarListaHaciaAtras(ListaEnlazada *fuente, ListaEnlazada *destino){
 
 	ElementoLista *elem;
 
-	ImprimirLista(fuente, fuente->numeroElementos);
-
 	for (elem = Lista_Primero(fuente); elem != NULL; elem = Lista_Siguiente(fuente, elem)){
 		Lista_InsertarInicio(destino, elem->objeto);
 	}
@@ -214,9 +209,6 @@ void CopiarListaHaciaAtras(ListaEnlazada *fuente, ListaEnlazada *destino){
 	ElementoLista *elem_fuente = NULL;
 	ElementoLista *elem_destino = NULL;
 
-	
-	//ImprimirLista(fuente, 10);
-	
 	for (elem_fuente = Lista_Primero(fuente), elem_destino = Lista_Ultimo(destino); elem_fuente != NULL;
 		elem_fuente = Lista_Siguiente(fuente, elem_fuente), elem_destino = Lista_Anterior(destino, elem_destino)) {	//fuente, elem_destino
 
@@ -303,10 +295,8 @@ void IntercambiarElementos(ListaEnlazada *lista, ElementoLista **elemento1, Elem
 	long valor_anterior_elem2 = (long)(anteriorElem2)->objeto;
 	//long valor_siguiente_elem2 = (long)(siguienteElem2)->objeto;
 
-	printf(" elem1 %lu\n", (long)(*elemento1)->objeto);
-	printf(" elem2 %lu\n", (long)(*elemento2)->objeto);
-	if (anteriorElem1 != NULL) printf(" anteriorelem1 %d\n", anteriorElem1->objeto);
-	printf(" anteriorelem2 %d\n", anteriorElem2->objeto);		
+	//printf(" elem1 %lu\n", (long)(*elemento1)->objeto);
+	//printf(" elem2 %lu\n", (long)(*elemento2)->objeto);	
 
 	long valor_elem1 = (long)(*elemento1)->objeto;
 	long valor_elem2 = (long)(*elemento2)->objeto;
@@ -318,33 +308,32 @@ void IntercambiarElementos(ListaEnlazada *lista, ElementoLista **elemento1, Elem
 	free(*elemento1);
 	free(*elemento2);
 
-	printf("antes del swap\n");
-	ImprimirLista(lista, Lista_Conteo(lista));
+	//printf("antes del swap\n");
+	//ImprimirLista(lista, Lista_Conteo(lista));
 
-	printf("insertar elemento 2\n");
 	/*elemento 2*/
 	if (anteriorElem1 == NULL){
 		/*elem1 es el primer elemento de la lista*/
 		Lista_InsertarInicio(lista, (void *)valor_elem2);
 		*elemento2 = Lista_Primero(lista);
-		ImprimirLista(lista, Lista_Conteo(lista));
+		//ImprimirLista(lista, Lista_Conteo(lista));
 	}
 	else{
 
 
 		Lista_InsertarDespues(lista, (void *)valor_elem2, anteriorElem1);
 		*elemento2 = Lista_Siguiente(lista, anteriorElem1);
-		ImprimirLista(lista, Lista_Conteo(lista));
+		//ImprimirLista(lista, Lista_Conteo(lista));
 
 	}
 
-	printf("insertar elemento 1\n");
+
 	/*elemento 1*/
 	if (anteriorElem2 == NULL){
 		/*elem2 es el primer elemento de la lista*/
 		Lista_InsertarInicio(lista, (void *)valor_elem1);
 		*elemento1 = Lista_Primero(lista);
-		ImprimirLista(lista, Lista_Conteo(lista));
+		//ImprimirLista(lista, Lista_Conteo(lista));
 	}
 	else{
 		/*El elemento2 siempre es cambiado correctamente
@@ -362,8 +351,8 @@ void IntercambiarElementos(ListaEnlazada *lista, ElementoLista **elemento1, Elem
 				Lista_InsertarAntes(lista, (void *)valor_elem1, siguienteElem2);
 				*elemento1 = Lista_Anterior(lista, anteriorElem2);
 			}
-			
-			ImprimirLista(lista, Lista_Conteo(lista));
+
+			//ImprimirLista(lista, Lista_Conteo(lista));
 		}
 		else{
 
@@ -372,8 +361,8 @@ void IntercambiarElementos(ListaEnlazada *lista, ElementoLista **elemento1, Elem
 
 		}
 	}
-	printf("despues del swap\n");
-	ImprimirLista(lista, Lista_Conteo(lista));
+	//printf("despues del swap\n");
+	//ImprimirLista(lista, Lista_Conteo(lista));
 
 	return;
 }
@@ -384,10 +373,10 @@ void OrdenarListaAscendente(ListaEnlazada *lista){
 
 	int i = 0;
 
-//#ifdef IMPRIMIR_LISTA
+#ifdef IMPRIMIR_LISTA
 	printf("Lista antes de ordenar:\n");
 	ImprimirLista(lista, Lista_Conteo(lista));
-//#endif
+#endif
 
 	ElementoLista *actual, *siguiente, *minimoActual, *elem;
 	for (i = 0; i < numeroElementos; i++){
@@ -437,8 +426,8 @@ void OrdenarListaAscendente(ListaEnlazada *lista){
 		}
 
 		//Aqui encontramos el minimo, 
-		printf("Minimo Actual %lu\n", (long)minimoActual->objeto);
-		printf("Actual %lu\n", (long)actual->objeto);
+		//printf("Minimo Actual %lu\n", (long)minimoActual->objeto);
+		//printf("Actual %lu\n", (long)actual->objeto);
 
 		//Si valor_elem == valor_min Quiere decir que el minimo lo encontramos de inmediato
 		if (minimo_cambio){
@@ -458,10 +447,10 @@ void OrdenarListaAscendente(ListaEnlazada *lista){
 		//Aqui actual y minimoActual son punteros liberados (IntercambiarElementos los libero)
 
 	}
-//#ifdef IMPRIMIR_LISTA
+#ifdef IMPRIMIR_LISTA
 	printf("OrdenarLista: despues de ordenar:\n");
 	ImprimirLista(lista, Lista_Conteo(lista));
-//#endif
+#endif
 
 	for (elem = Lista_Primero(lista); elem != NULL; elem = Lista_Siguiente(lista, elem)){
 		siguiente = Lista_Siguiente(lista, elem);
@@ -518,21 +507,41 @@ void RealizarPruebas(int numeroElementos)
 	/*Llenamos la lista*/
 	LlenarLista(&lista, numeroElementos);
 
+	printf("\nLista\n");
+	ImprimirLista(&lista, (&lista)->numeroElementos);
+
 	/*Barajar los elementos dentro de la lista*/
 	BarajarLista(&lista, numeroElementos);
 
+	printf("\nLista\n");
+	ImprimirLista(&lista, (&lista)->numeroElementos);
+
 	/*Buscar todos en lista*/
 	BuscarTodosEnLista(&lista, numeroElementos);
+
+	printf("\nLista\n");
+	ImprimirLista(&lista, (&lista)->numeroElementos);
 
 	/*Copiar lista prueba*/
 	CopiarListaHaciaAdelante(&lista, &lista2);
 	CopiarListaHaciaAtras(&lista, &lista3);
 	CopiarListaPares(&lista, &listaPares);
 
+	printf("\nLista\n");
+	ImprimirLista(&lista, (&lista)->numeroElementos);
+	printf("\nLista2\n");
+	ImprimirLista(&lista2, (&lista2)->numeroElementos);
+	printf("\nLista3\n");
+	ImprimirLista(&lista3, (&lista3)->numeroElementos);
+	printf("\nListaPares\n");
+	ImprimirLista(&listaPares, (&listaPares)->numeroElementos);
+
 
 	/*Finalemente ordenamos la lista*/
 	OrdenarListaAscendente(&lista);
 
+	printf("\nLista\n");
+	ImprimirLista(&lista, (&lista)->numeroElementos);
 
 	return;
 
@@ -543,7 +552,12 @@ void RealizarPruebas(int numeroElementos)
 int main(int argc, char *argv[])
 {
 
-	int elementos = 10;
+	if (argc < 2){
+		fprintf(stderr, "Por favor ingrese el numero de elementos como argumento ej.: ./prueba 1234");
+		exit(-1);
+	}
+
+	int elementos = atoi(argv[1]);
 	RealizarPruebas(elementos);
 	return 0;
 }
