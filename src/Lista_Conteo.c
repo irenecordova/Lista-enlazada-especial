@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "miLista.h"
 
 //Retorna el número de elementos de la lista

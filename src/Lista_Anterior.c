@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "miLista.h"
 
 //Busca el elemento anterior al elemento ingresado como parámetro y lo retorna

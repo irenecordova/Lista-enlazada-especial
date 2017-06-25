@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "miLista.h"
 
 //Inicializa la lista, constructor

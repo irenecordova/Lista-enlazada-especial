@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "miLista.h"
 
 //Inserta un elemento antes del elemento ingresado como parámetro

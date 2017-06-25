@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "miLista.h"
 
 //Busca si el elemento pertenece a lista
