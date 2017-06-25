@@ -13,6 +13,7 @@ extern int Lista_InsertarDespues(ListaEnlazada *lista, void *objeto, ElementoLis
 		else if (temp != NULL)
 		{
 			ElementoLista *nuevo = (ElementoLista *)malloc(sizeof(ElementoLista));
+
 			nuevo->objeto = objeto;
 			nuevo->anterior = elemento;
 			nuevo->siguiente = elemento->siguiente;

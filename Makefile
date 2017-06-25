@@ -1,7 +1,7 @@
 all: prueba
 
 prueba: prueba.o objetos libmilista.so
-	gcc -Llib/ obj/prueba.o obj/Lista*.o -lcifrado -o bin/prueba
+	gcc -Llib/ obj/prueba.o obj/Lista*.o -lmilista -o bin/prueba
 
 prueba.o: src/pruebaLista.c
 	gcc -Wall -Iinclude/ -c src/pruebaLista.c -o obj/prueba.o

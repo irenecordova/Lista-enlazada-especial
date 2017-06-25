@@ -11,7 +11,7 @@ extern int Lista_Inicializar(ListaEnlazada *lista)
 		elemento->anterior = elemento;
 		
 		lista->numeroElementos = 0;
-		lista->ancla = elemento;
+		lista->ancla = *elemento;
 		return 1;
 	}
 	return -1;

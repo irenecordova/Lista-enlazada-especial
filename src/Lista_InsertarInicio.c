@@ -10,18 +10,18 @@ extern int Lista_InsertarInicio(ListaEnlazada *lista, void *objeto)
 
 		if (Lista_Vacia(lista) == 1)
 		{
-			elemento->siguiente = elemento->anterior = lista->ancla;
-			lista->ancla->siguiente = elemento;
+			elemento->siguiente = elemento->anterior = &(lista->ancla);
+			lista->ancla.siguiente = elemento;
 		}
 		else
 		{
 			ElementoLista *primero = Lista_Primero(lista);
 			primero->anterior = elemento;
 			elemento->siguiente = primero;
-			elemento->anterior = lista->ancla;
+			elemento->anterior = &(lista->ancla);
 		}
 
-		lista->ancla->siguiente = elemento;
+		lista->ancla.siguiente = elemento;
 		lista->numeroElementos++;
 		return 1;
 	}

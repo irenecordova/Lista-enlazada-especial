@@ -6,12 +6,12 @@ extern void Lista_Sacar(ListaEnlazada *lista, ElementoLista *elemento)
 	{
 		ElementoLista *temp = Lista_Buscar(lista, elemento->objeto);
 		
-		if ((temp != NULL) && (elemento != Lista_Ultimo(lista))
+		if ((temp != NULL) && (elemento != Lista_Ultimo(lista)))
 		{
 			elemento->anterior->siguiente = elemento->siguiente;
 			elemento->siguiente->anterior = elemento->anterior;
 			elemento = NULL;
-			lista->numeroELementos--;
+			lista->numeroElementos--;
 		}
 	}
 }
